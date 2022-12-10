@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "workspaces": ["client", "graphql-server"],
+  "scripts": {
+    "server:start": "yarn workspace @test/graphql-server start",
+    "client:start": "yarn workspace @test/client dev",
+    "client:relay": "yarn workspace @test/client relay"
+  }
+}
