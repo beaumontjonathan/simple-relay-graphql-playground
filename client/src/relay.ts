@@ -1,7 +1,7 @@
-import { Environment, Network, RecordSource, Store } from "relay-runtime";
+import { Environment, FetchFunction, Network, RecordSource, Store } from "relay-runtime";
 
-const makeGraphQLPostRequest = async (body) => {
-  const url = window.location.origin.replace("-4000", "-5000") + "/graphql";
+const makeGraphQLPostRequest = async (body: string) => {
+  const url = window.location.origin.replace(":4000", ":5000") + "/graphql";
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -13,7 +13,7 @@ const makeGraphQLPostRequest = async (body) => {
   return response;
 };
 
-const fetchQuery = async (operation, variables) => {
+const fetchQuery: FetchFunction = async (operation, variables) => {
   let response = await makeGraphQLPostRequest(
     JSON.stringify({
       query: operation.text,

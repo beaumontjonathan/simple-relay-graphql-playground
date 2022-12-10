@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { graphql, useMutation } from "react-relay";
+import { AppMutation, AppMutation$data } from './__generated__/AppMutation.graphql'
 
 graphql`
   fragment AppNodeFragment on Node {
@@ -11,11 +12,15 @@ graphql`
       foo: id
     }
   }
+`;
 
+graphql`
   fragment AppNeverImplementedFragment on NeverImplemented {
     id
   }
+`;
 
+graphql`
   # Union
   fragment AppHumanOrPetFragment on HumanOrPet {
     __typename
@@ -26,29 +31,27 @@ graphql`
       id
     }
   }
+`;
 
+graphql`
   # Fragment
   fragment AppHumanFragment on Human {
     id
   }
-`
+`;
 
 export function App() {
-  const [error, setError] = useState(null);
-  const [user, setUser] = useState(null);
-  const [commitMutation, isMutationInFlight] = useMutation(
+  const nameRef = useRef<HTMLInputElement>(null);
+  const ageRef = useRef<HTMLInputElement>(null);
+  const [error, setError] = useState<{ message: string } | null>(null);
+  const [user, setUser] = useState<AppMutation$data['newUser'] | null>(null);
+  const [commitMutation, isMutationInFlight] = useMutation<AppMutation>(
     graphql`
       mutation AppMutation($name: String!, $age: String!) {
         newUser(
           otherField: ""
           yetAnotherField: 2
           input: {
-            preferences: {
-              loginPreferences: {
-                nonNullStringNonNullList: []
-                string: $name
-              }
-            }
             age: $age
             name: $name
           }
@@ -63,7 +66,7 @@ export function App() {
   if (user) {
     return (
       <>
-        <h1>{`Hi ${user.name}`}</h1>
+        <h1>{`Hi ${user.id}`}</h1>
         <p>{`Your age is ${user.age}`}</p>
       </>
     );
@@ -81,22 +84,22 @@ export function App() {
             onError: (error) => setError({ message: error.message }),
             onCompleted: ({ newUser }) => setUser(newUser),
             variables: {
-              name: document.getElementById("name").value,
-              age: parseInt(document.getElementById("age").value, 10)
+              name: nameRef.current!.value,
+              age: ageRef.current!.value,
             }
           });
         }}
       >
         <input
-          disabled={isMutationInFlight}
+          ref={nameRef}
           placeholder="Name"
-          id="name"
+          disabled={isMutationInFlight}
           type="text"
         />
         <input
+          ref={ageRef}
           disabled={isMutationInFlight}
           placeholder="Age"
-          id="age"
           type="text"
         />
         <button disabled={isMutationInFlight} type="submit">

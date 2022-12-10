@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ca7286e0402ec81c1440a8fef3d45663>>
+ * @generated SignedSource<<a976183c56d99fe42e1ae95256a77704>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -17,7 +17,6 @@ export type AppMutation$data = {
   readonly newUser: {
     readonly age: string;
     readonly id: string;
-    readonly name: string;
   };
 };
 export type AppMutation = {
@@ -55,6 +54,16 @@ v2 = [
         ],
         "kind": "ObjectValue",
         "name": "input"
+      },
+      {
+        "kind": "Literal",
+        "name": "otherField",
+        "value": ""
+      },
+      {
+        "kind": "Literal",
+        "name": "yetAnotherField",
+        "value": 2
       }
     ],
     "concreteType": "User",
@@ -74,13 +83,6 @@ v2 = [
         "args": null,
         "kind": "ScalarField",
         "name": "age",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "name",
         "storageKey": null
       }
     ],
@@ -111,16 +113,16 @@ return {
     "selections": (v2/*: any*/)
   },
   "params": {
-    "cacheID": "ca1c4690f8cfd3c894a014ab52495da0",
+    "cacheID": "8554f029d72e73bfcaf18f539cc84d81",
     "id": null,
     "metadata": {},
     "name": "AppMutation",
     "operationKind": "mutation",
-    "text": "mutation AppMutation(\n  $name: String!\n  $age: String!\n) {\n  newUser(input: {age: $age, name: $name}) {\n    id\n    age\n    name\n  }\n}\n"
+    "text": "mutation AppMutation(\n  $name: String!\n  $age: String!\n) {\n  newUser(otherField: \"\", yetAnotherField: 2, input: {age: $age, name: $name}) {\n    id\n    age\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "dc9008b7f4e5f3ed3babd31bee23c874";
+(node as any).hash = "ce8010f12523174fad203349e62fdede";
 
 export default node;
