@@ -1,12 +1,10 @@
 import { Environment, Network, RecordSource, Store } from "relay-runtime";
 
 const makeGraphQLPostRequest = async (body) => {
-  const url = window.location.origin.replace("-4000", "-5000") + "/graphql";
+  const url = window.location.origin.replace(":4007", ":5000") + "/graphql";
   const response = await fetch(url, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body
   });
 

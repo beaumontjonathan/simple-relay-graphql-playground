@@ -1,0 +1,68 @@
+interface Node {
+  id: ID!
+}
+
+type Faction implements Node {
+  id: ID!
+  name: String
+  ships(
+    search: String
+    first: Int
+    after: String
+    sort: ShipSort!
+  ): ShipConnection!
+}
+
+type Ship implements Node {
+  id: ID!
+  name: String
+}
+
+type ShipConnection {
+  edges: [ShipEdge]
+  pageInfo: PageInfo!
+}
+
+type ShipEdge {
+  cursor: String!
+  node: Ship
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type User implements Node {
+  id: ID!
+  name: String!
+  age: String!
+}
+
+type Query {
+  hello: String!
+  faction: Faction!
+  node(id: ID!): Node
+  ships(
+    search: String
+    first: Int
+    after: String
+    sort: ShipSort!
+  ): ShipConnection!
+}
+
+enum SortDirection {
+  ASC
+  DESC
+}
+
+enum ShipSortField {
+  NAME
+}
+
+input ShipSort {
+  direction: SortDirection!
+  field: ShipSortField!
+}

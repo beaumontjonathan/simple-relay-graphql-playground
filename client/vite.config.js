@@ -4,16 +4,11 @@ import relay from "vite-plugin-relay";
 
 export default defineConfig(() => ({
   server: {
-    port: 4000,
+    port: 4007,
     host: "127.0.0.1"
   },
   plugins: [
-    react({
-      // jsxImportSource: "@emotion/react",
-      // babel: {
-      //   plugins: ["@emotion/babel-plugin"]
-      // }
-    }),
+    react(),
     relay
   ]
 }));
