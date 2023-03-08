@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<0bad555f5d4382d9b56d2c9bba7ecacf>>
+ * @generated SignedSource<<1c94001f3f65a66cb71960c9a1ca98a6>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -57,14 +57,6 @@ return {
       "defaultValue": "",
       "kind": "LocalArgument",
       "name": "search"
-    },
-    {
-      "defaultValue": {
-        "direction": "ASC",
-        "field": "NAME"
-      },
-      "kind": "LocalArgument",
-      "name": "sort"
     }
   ],
   "kind": "Fragment",
@@ -102,11 +94,6 @@ return {
           "kind": "Variable",
           "name": "search",
           "variableName": "search"
-        },
-        {
-          "kind": "Variable",
-          "name": "sort",
-          "variableName": "sort"
         }
       ],
       "concreteType": "ShipConnection",
@@ -193,6 +180,6 @@ return {
 };
 })();
 
-(node as any).hash = "ee125badc5a0d915cf211fba45820dae";
+(node as any).hash = "d92cda49dcb0206c046e99c6e1abd94b";
 
 export default node;

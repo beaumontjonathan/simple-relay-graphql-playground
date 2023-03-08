@@ -9,7 +9,6 @@ type Faction implements Node {
     search: String
     first: Int
     after: String
-    sort: ShipSort!
   ): ShipConnection!
 }
 
@@ -49,20 +48,5 @@ type Query {
     search: String
     first: Int
     after: String
-    sort: ShipSort!
   ): ShipConnection!
-}
-
-enum SortDirection {
-  ASC
-  DESC
-}
-
-enum ShipSortField {
-  NAME
-}
-
-input ShipSort {
-  direction: SortDirection!
-  field: ShipSortField!
 }

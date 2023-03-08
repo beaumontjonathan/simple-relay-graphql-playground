@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ecbe228eddbb4742dd2d7337130c3c0c>>
+ * @generated SignedSource<<b9bcdbf476047ca1e265bb5a19608918>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,18 +10,11 @@
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type ShipSortField = "NAME" | "%future added value";
-export type SortDirection = "ASC" | "DESC" | "%future added value";
-export type ShipSort = {
-  direction: SortDirection;
-  field: ShipSortField;
-};
 export type ShipsListPaginationQuery$variables = {
   count?: number | null;
   cursor?: string | null;
   id: string;
   search?: string | null;
-  sort?: ShipSort | null;
 };
 export type ShipsListPaginationQuery$data = {
   readonly node: {
@@ -54,46 +47,33 @@ v3 = {
   "kind": "LocalArgument",
   "name": "search"
 },
-v4 = {
-  "defaultValue": {
-    "direction": "ASC",
-    "field": "NAME"
-  },
-  "kind": "LocalArgument",
-  "name": "sort"
-},
-v5 = [
+v4 = [
   {
     "kind": "Variable",
     "name": "id",
     "variableName": "id"
   }
 ],
-v6 = {
+v5 = {
   "kind": "Variable",
   "name": "search",
   "variableName": "search"
 },
-v7 = {
-  "kind": "Variable",
-  "name": "sort",
-  "variableName": "sort"
-},
-v8 = {
+v6 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "__typename",
   "storageKey": null
 },
-v9 = {
+v7 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v10 = [
+v8 = [
   {
     "kind": "Variable",
     "name": "after",
@@ -104,8 +84,7 @@ v10 = [
     "name": "first",
     "variableName": "count"
   },
-  (v6/*: any*/),
-  (v7/*: any*/)
+  (v5/*: any*/)
 ];
 return {
   "fragment": {
@@ -113,8 +92,7 @@ return {
       (v0/*: any*/),
       (v1/*: any*/),
       (v2/*: any*/),
-      (v3/*: any*/),
-      (v4/*: any*/)
+      (v3/*: any*/)
     ],
     "kind": "Fragment",
     "metadata": null,
@@ -122,7 +100,7 @@ return {
     "selections": [
       {
         "alias": null,
-        "args": (v5/*: any*/),
+        "args": (v4/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
         "name": "node",
@@ -140,8 +118,7 @@ return {
                 "name": "cursor",
                 "variableName": "cursor"
               },
-              (v6/*: any*/),
-              (v7/*: any*/)
+              (v5/*: any*/)
             ],
             "kind": "FragmentSpread",
             "name": "ShipsList_faction"
@@ -159,7 +136,6 @@ return {
       (v0/*: any*/),
       (v1/*: any*/),
       (v3/*: any*/),
-      (v4/*: any*/),
       (v2/*: any*/)
     ],
     "kind": "Operation",
@@ -167,20 +143,20 @@ return {
     "selections": [
       {
         "alias": null,
-        "args": (v5/*: any*/),
+        "args": (v4/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
         "name": "node",
         "plural": false,
         "selections": [
-          (v8/*: any*/),
-          (v9/*: any*/),
+          (v6/*: any*/),
+          (v7/*: any*/),
           {
             "kind": "InlineFragment",
             "selections": [
               {
                 "alias": null,
-                "args": (v10/*: any*/),
+                "args": (v8/*: any*/),
                 "concreteType": "ShipConnection",
                 "kind": "LinkedField",
                 "name": "ships",
@@ -209,7 +185,7 @@ return {
                         "name": "node",
                         "plural": false,
                         "selections": [
-                          (v9/*: any*/),
+                          (v7/*: any*/),
                           {
                             "alias": null,
                             "args": null,
@@ -217,7 +193,7 @@ return {
                             "name": "name",
                             "storageKey": null
                           },
-                          (v8/*: any*/)
+                          (v6/*: any*/)
                         ],
                         "storageKey": null
                       }
@@ -254,10 +230,9 @@ return {
               },
               {
                 "alias": null,
-                "args": (v10/*: any*/),
+                "args": (v8/*: any*/),
                 "filters": [
-                  "search",
-                  "sort"
+                  "search"
                 ],
                 "handle": "connection",
                 "key": "ShipsList_faction_ships",
@@ -274,16 +249,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c26fbd77bb2ca31138130069c02ef398",
+    "cacheID": "c2084e45f254d7d3631e50b7aefe037f",
     "id": null,
     "metadata": {},
     "name": "ShipsListPaginationQuery",
     "operationKind": "query",
-    "text": "query ShipsListPaginationQuery(\n  $count: Int = 5\n  $cursor: String = null\n  $search: String = \"\"\n  $sort: ShipSort = {direction: ASC, field: NAME}\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...ShipsList_faction_fZxq9\n    id\n  }\n}\n\nfragment ShipsList_faction_fZxq9 on Faction {\n  ships(first: $count, search: $search, sort: $sort, after: $cursor) {\n    edges {\n      cursor\n      node {\n        id\n        name\n        __typename\n      }\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
+    "text": "query ShipsListPaginationQuery(\n  $count: Int = 5\n  $cursor: String = null\n  $search: String = \"\"\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...ShipsList_faction_3PfUTl\n    id\n  }\n}\n\nfragment ShipsList_faction_3PfUTl on Faction {\n  ships(first: $count, search: $search, after: $cursor) {\n    edges {\n      cursor\n      node {\n        id\n        name\n        __typename\n      }\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
   }
 };
 })();
 
-(node as any).hash = "ee125badc5a0d915cf211fba45820dae";
+(node as any).hash = "d92cda49dcb0206c046e99c6e1abd94b";
 
 export default node;

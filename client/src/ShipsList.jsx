@@ -7,12 +7,11 @@ export default function ShipsList({ faction, searchTerm }) {
     @argumentDefinitions (
       count: { type: "Int", defaultValue: 5 }
       search: { type: "String", defaultValue: "" }
-      sort: { type: "ShipSort", defaultValue: { direction: ASC, field: NAME } }
       cursor: { type: "String", defaultValue: null }
     )
     @refetchable(queryName: "ShipsListPaginationQuery")
     {
-      ships(first: $count search: $search sort: $sort after: $cursor)
+      ships(first: $count search: $search after: $cursor)
       @connection(key: "ShipsList_faction_ships")
       {
         edges {

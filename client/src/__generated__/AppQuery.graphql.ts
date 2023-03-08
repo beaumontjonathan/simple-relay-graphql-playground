@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<b3bbd90f90b5c3180af02900dca24d1b>>
+ * @generated SignedSource<<d1d65ebbd822cf2196248c9c5a891fd8>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -40,14 +40,6 @@ v1 = [
     "kind": "Literal",
     "name": "search",
     "value": ""
-  },
-  {
-    "kind": "Literal",
-    "name": "sort",
-    "value": {
-      "direction": "ASC",
-      "field": "NAME"
-    }
   }
 ],
 v2 = {
@@ -178,14 +170,13 @@ return {
                 "storageKey": null
               }
             ],
-            "storageKey": "ships(first:5,search:\"\",sort:{\"direction\":\"ASC\",\"field\":\"NAME\"})"
+            "storageKey": "ships(first:5,search:\"\")"
           },
           {
             "alias": null,
             "args": (v1/*: any*/),
             "filters": [
-              "search",
-              "sort"
+              "search"
             ],
             "handle": "connection",
             "key": "ShipsList_faction_ships",
@@ -199,12 +190,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "66330ce5d147949cdb5515e5c825c816",
+    "cacheID": "6ffd5a55495833449df79c5ace850159",
     "id": null,
     "metadata": {},
     "name": "AppQuery",
     "operationKind": "query",
-    "text": "query AppQuery {\n  hello\n  faction {\n    ...ShipsList_faction\n    id\n  }\n}\n\nfragment ShipsList_faction on Faction {\n  ships(first: 5, search: \"\", sort: {direction: ASC, field: NAME}) {\n    edges {\n      cursor\n      node {\n        id\n        name\n        __typename\n      }\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
+    "text": "query AppQuery {\n  hello\n  faction {\n    ...ShipsList_faction\n    id\n  }\n}\n\nfragment ShipsList_faction on Faction {\n  ships(first: 5, search: \"\") {\n    edges {\n      cursor\n      node {\n        id\n        name\n        __typename\n      }\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
   }
 };
 })();
