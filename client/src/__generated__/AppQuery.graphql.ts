@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d1d65ebbd822cf2196248c9c5a891fd8>>
+ * @generated SignedSource<<d6365e3f061d97a8919a0779b56b06a6>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -30,19 +30,7 @@ var v0 = {
   "name": "hello",
   "storageKey": null
 },
-v1 = [
-  {
-    "kind": "Literal",
-    "name": "first",
-    "value": 5
-  },
-  {
-    "kind": "Literal",
-    "name": "search",
-    "value": ""
-  }
-],
-v2 = {
+v1 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -94,7 +82,13 @@ return {
         "selections": [
           {
             "alias": null,
-            "args": (v1/*: any*/),
+            "args": [
+              {
+                "kind": "Literal",
+                "name": "search",
+                "value": ""
+              }
+            ],
             "concreteType": "ShipConnection",
             "kind": "LinkedField",
             "name": "ships",
@@ -123,19 +117,12 @@ return {
                     "name": "node",
                     "plural": false,
                     "selections": [
-                      (v2/*: any*/),
+                      (v1/*: any*/),
                       {
                         "alias": null,
                         "args": null,
                         "kind": "ScalarField",
                         "name": "name",
-                        "storageKey": null
-                      },
-                      {
-                        "alias": null,
-                        "args": null,
-                        "kind": "ScalarField",
-                        "name": "__typename",
                         "storageKey": null
                       }
                     ],
@@ -143,59 +130,23 @@ return {
                   }
                 ],
                 "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "PageInfo",
-                "kind": "LinkedField",
-                "name": "pageInfo",
-                "plural": false,
-                "selections": [
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "endCursor",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "hasNextPage",
-                    "storageKey": null
-                  }
-                ],
-                "storageKey": null
               }
             ],
-            "storageKey": "ships(first:5,search:\"\")"
+            "storageKey": "ships(search:\"\")"
           },
-          {
-            "alias": null,
-            "args": (v1/*: any*/),
-            "filters": [
-              "search"
-            ],
-            "handle": "connection",
-            "key": "ShipsList_faction_ships",
-            "kind": "LinkedHandle",
-            "name": "ships"
-          },
-          (v2/*: any*/)
+          (v1/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "6ffd5a55495833449df79c5ace850159",
+    "cacheID": "31c515cdea772e5d6b7bc74d5973bb6f",
     "id": null,
     "metadata": {},
     "name": "AppQuery",
     "operationKind": "query",
-    "text": "query AppQuery {\n  hello\n  faction {\n    ...ShipsList_faction\n    id\n  }\n}\n\nfragment ShipsList_faction on Faction {\n  ships(first: 5, search: \"\") {\n    edges {\n      cursor\n      node {\n        id\n        name\n        __typename\n      }\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
+    "text": "query AppQuery {\n  hello\n  faction {\n    ...ShipsList_faction\n    id\n  }\n}\n\nfragment ShipsList_faction on Faction {\n  ships(search: \"\") {\n    edges {\n      cursor\n      node {\n        id\n        name\n      }\n    }\n  }\n  id\n}\n"
   }
 };
 })();

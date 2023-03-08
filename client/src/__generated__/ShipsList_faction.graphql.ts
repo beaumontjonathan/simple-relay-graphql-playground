@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<1c94001f3f65a66cb71960c9a1ca98a6>>
+ * @generated SignedSource<<75c8e9f526fc0fd6449206c3d4f0fb1f>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -31,10 +31,7 @@ export type ShipsList_faction$key = {
 import ShipsListPaginationQuery_graphql from './ShipsListPaginationQuery.graphql';
 
 const node: ReaderFragment = (function(){
-var v0 = [
-  "ships"
-],
-v1 = {
+var v0 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -44,16 +41,6 @@ v1 = {
 return {
   "argumentDefinitions": [
     {
-      "defaultValue": 5,
-      "kind": "LocalArgument",
-      "name": "count"
-    },
-    {
-      "defaultValue": null,
-      "kind": "LocalArgument",
-      "name": "cursor"
-    },
-    {
       "defaultValue": "",
       "kind": "LocalArgument",
       "name": "search"
@@ -61,23 +48,8 @@ return {
   ],
   "kind": "Fragment",
   "metadata": {
-    "connection": [
-      {
-        "count": "count",
-        "cursor": "cursor",
-        "direction": "forward",
-        "path": (v0/*: any*/)
-      }
-    ],
     "refetch": {
-      "connection": {
-        "forward": {
-          "count": "count",
-          "cursor": "cursor"
-        },
-        "backward": null,
-        "path": (v0/*: any*/)
-      },
+      "connection": null,
       "fragmentPathInResult": [
         "node"
       ],
@@ -88,7 +60,7 @@ return {
   "name": "ShipsList_faction",
   "selections": [
     {
-      "alias": "ships",
+      "alias": null,
       "args": [
         {
           "kind": "Variable",
@@ -98,7 +70,7 @@ return {
       ],
       "concreteType": "ShipConnection",
       "kind": "LinkedField",
-      "name": "__ShipsList_faction_ships_connection",
+      "name": "ships",
       "plural": false,
       "selections": [
         {
@@ -124,47 +96,15 @@ return {
               "name": "node",
               "plural": false,
               "selections": [
-                (v1/*: any*/),
+                (v0/*: any*/),
                 {
                   "alias": null,
                   "args": null,
                   "kind": "ScalarField",
                   "name": "name",
                   "storageKey": null
-                },
-                {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "__typename",
-                  "storageKey": null
                 }
               ],
-              "storageKey": null
-            }
-          ],
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "concreteType": "PageInfo",
-          "kind": "LinkedField",
-          "name": "pageInfo",
-          "plural": false,
-          "selections": [
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "endCursor",
-              "storageKey": null
-            },
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "hasNextPage",
               "storageKey": null
             }
           ],
@@ -173,13 +113,13 @@ return {
       ],
       "storageKey": null
     },
-    (v1/*: any*/)
+    (v0/*: any*/)
   ],
   "type": "Faction",
   "abstractKey": null
 };
 })();
 
-(node as any).hash = "d92cda49dcb0206c046e99c6e1abd94b";
+(node as any).hash = "d437ec6a313c0b617b742e17e1b6fc8c";
 
 export default node;
